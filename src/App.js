@@ -15,19 +15,23 @@ const App = () => {
   const alert = useAlert()
 
   useEffect(() => {
-    initTheme();
-    // const data0 = localStorage.getItem('myTasks') ? JSON.parse(localStorage.getItem('myTasks')) : [...todoList]
-    // setTodos(data0);
-  }, []);
-
-  const initTheme = () => {
     if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
       setTheme('dark');      
     }
   
     localStorage.theme = theme;
-    addThemeClasses();
-  }
+    
+    if(theme ==='dark') {
+      document.body.classList.add('dark-bg');
+      document.documentElement.classList.add('dark'); 
+    }else {
+      document.body.classList.remove('dark-bg');
+      document.documentElement.classList.remove('dark');      
+    }
+    
+    // const data0 = localStorage.getItem('myTasks') ? JSON.parse(localStorage.getItem('myTasks')) : [...todoList]
+    // setTodos(data0);
+  }, [theme]);
   
   const toggleTheme = () => {  
     setTheme(theme === 'dark' ? 'light': 'dark');
