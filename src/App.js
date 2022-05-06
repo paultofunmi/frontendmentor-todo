@@ -18,9 +18,9 @@ const App = () => {
     if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
       setTheme('dark');      
     }
-  
-    localStorage.theme = theme;
-    
+  }, []);
+
+  useEffect(() => {
     if(theme ==='dark') {
       document.body.classList.add('dark-bg');
       document.documentElement.classList.add('dark'); 
@@ -28,25 +28,11 @@ const App = () => {
       document.body.classList.remove('dark-bg');
       document.documentElement.classList.remove('dark');      
     }
-    
-    // const data0 = localStorage.getItem('myTasks') ? JSON.parse(localStorage.getItem('myTasks')) : [...todoList]
-    // setTodos(data0);
+    localStorage.theme = theme;    
   }, [theme]);
   
   const toggleTheme = () => {  
-    setTheme(theme === 'dark' ? 'light': 'dark');
-    localStorage.theme = theme;
-    addThemeClasses();
-  }
-  
-  const addThemeClasses = () => {
-    if(theme ==='dark') {
-      document.body.classList.add('dark-bg');
-      document.documentElement.classList.add('dark'); 
-    }else {
-      document.body.classList.remove('dark-bg');
-      document.documentElement.classList.remove('dark');      
-    }
+    setTheme(theme === 'dark' ? 'light': 'dark');   
   }
 
   const addTodo = (val) => {          
