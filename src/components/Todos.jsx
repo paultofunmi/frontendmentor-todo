@@ -10,6 +10,9 @@ const Todos = ({tasks, remove, toggle, clear}) => {
      setFilter(filter);
   }
 
+  let r = filter === 'all' ? 't': 'f';
+  console.log(r);
+
   return (
     <>
         <section className='todos md:w-6/12 sm:w-11/12 lg:w-5/12 mx-auto sm:mt-5 bg-white dark:bg-dark-blue-2 rounded-md shadow-lg'>        
@@ -22,9 +25,9 @@ const Todos = ({tasks, remove, toggle, clear}) => {
 
                 <div className='md:visible sm:invisible'>
                 <ul className='flex gap-3 cursor-pointer'>
-                    <li onClick={ () => updateFilter('all')} className={` ${filter === 'all' ? 'text-bright-blue': ''} text-xs text-gray-blue-3 dark:text-dark-blue-5`}>All</li>
-                    <li onClick={ () => updateFilter('active')} className={` ${filter === 'active' ? 'text-bright-blue': ''} text-xs text-gray-blue-3 dark:text-dark-blue-5`}>Active</li>
-                    <li onClick={ () => updateFilter('complete')} className={` ${filter === 'complete' ? 'text-bright-blue': ''} text-xs text-gray-blue-3 dark:text-dark-blue-5`}>Completed</li>
+                    <li onClick={ () => updateFilter('all')} className={` ${filter === 'all' ? 'text-bright-blue': 'text-gray-blue-3 dark:text-dark-blue-5'} text-xs`}>All</li>
+                    <li onClick={ () => updateFilter('active')} className={` ${filter === 'active' ? 'text-bright-blue': 'text-gray-blue-3 dark:text-dark-blue-5'} text-xs`}>Active</li>
+                    <li onClick={ () => updateFilter('complete')} className={` ${filter === 'complete' ? 'text-bright-blue': 'text-gray-blue-3 dark:text-dark-blue-5'} text-xs`}>Completed</li>
                 </ul>
                 </div>
 
@@ -36,9 +39,9 @@ const Todos = ({tasks, remove, toggle, clear}) => {
 
       <section className='shadow-md h:full flex justify-center items-center md:w-6/12 sm:w-11/12 lg:w-5/12 mx-auto sm:mt-5 bg-white dark:bg-dark-blue-2 rounded-md p-3 md:invisible'>
           <ul className='flex gap-3 cursor-pointer text-white dark:text-dark-blue-6'>
-              <li onClick={ () => updateFilter('all')} className={` ${filter === 'all' ? 'text-bright-blue': ''} text-xs text-gray-blue-3 dark:text-dark-blue-5`}>All</li>
-              <li onClick={ () => updateFilter('active')} className={` ${filter === 'active' ? 'text-bright-blue': ''} text-xs text-gray-blue-3 dark:text-dark-blue-5`}>Active</li>
-              <li onClick={ () => updateFilter('complete')} className={` ${filter === 'complete' ? 'text-bright-blue': ''} text-xs text-gray-blue-3 dark:text-dark-blue-5`}>Completed</li>
+            <li onClick={ () => updateFilter('all')} className={` ${filter === 'all' ? 'text-bright-blue': 'text-gray-blue-3 dark:text-dark-blue-5'} text-xs`}>All</li>
+            <li onClick={ () => updateFilter('active')} className={` ${filter === 'active' ? 'text-bright-blue': 'text-gray-blue-3 dark:text-dark-blue-5'} text-xs`}>Active</li>
+            <li onClick={ () => updateFilter('complete')} className={` ${filter === 'complete' ? 'text-bright-blue': 'text-gray-blue-3 dark:text-dark-blue-5'} text-xs`}>Completed</li>
           </ul>
       </section>
 
