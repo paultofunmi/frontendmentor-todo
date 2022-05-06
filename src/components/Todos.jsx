@@ -36,9 +36,9 @@ const Todos = ({tasks, remove, toggle, clear}) => {
 
       <section className='shadow-md h:full flex justify-center items-center md:w-6/12 sm:w-11/12 lg:w-5/12 mx-auto sm:mt-5 bg-white dark:bg-dark-blue-2 rounded-md p-3 md:invisible'>
           <ul className='flex gap-3 cursor-pointer text-white dark:text-dark-blue-6'>
-            <li className='text-bright-blue text-xs'>All</li>
-            <li className='text-xs text-gray-blue-3 dark:text-dark-blue-5'>Active</li>
-            <li className='text-xs text-gray-blue-3 dark:text-dark-blue-5'>Completed</li>
+              <li onClick={ () => updateFilter('all')} className={` ${filter === 'all' ? 'text-bright-blue': ''} text-xs text-gray-blue-3 dark:text-dark-blue-5`}>All</li>
+              <li onClick={ () => updateFilter('active')} className={` ${filter === 'active' ? 'text-bright-blue': ''} text-xs text-gray-blue-3 dark:text-dark-blue-5`}>Active</li>
+              <li onClick={ () => updateFilter('complete')} className={` ${filter === 'complete' ? 'text-bright-blue': ''} text-xs text-gray-blue-3 dark:text-dark-blue-5`}>Completed</li>
           </ul>
       </section>
 
