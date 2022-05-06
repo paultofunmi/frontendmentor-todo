@@ -19,7 +19,7 @@ const Todos = ({tasks, remove, toggle, clear}) => {
             <TodoList tasks={tasks} remove={remove} toggle={toggle} filter={filter}/>
             
             <section className='todo-meta flex justify-between text-white dark:text-dark-blue-6 p-3'>
-                <div className='items-left text-xs text-gray-blue-3 dark:text-dark-blue-5'>
+                <div className='items-left text-xs text-gray-blue-3 dark:text-dark-blue-5 '>
                     { tasks.filter((task) => !task.checked).length } items left
                 </div>
 
@@ -31,8 +31,8 @@ const Todos = ({tasks, remove, toggle, clear}) => {
                 </ul>
                 </div>
 
-                <div className='items-clear text-xs cursor-pointer text-gray-blue-3 dark:text-dark-blue-5' onClick={ () => clear()}>
-                    Clear Completed
+                <div className='items-clear text-xs cursor-pointer text-gray-blue-3 dark:text-dark-blue-5 ' onClick={ () => clear()}>
+                    clear completed
                 </div>
             </section>
        </section>
