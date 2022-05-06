@@ -10,16 +10,17 @@ const TodoList = ({ tasks, remove, toggle, filter }) => {
 
   useEffect(() => {
 
+    let filterData = [];
     if(filter === 'active') {
-      filteredTodos = tasks.filter( (task) => !task.checked);
+      filterData = [...tasks.filter( (task) => !task.checked)];
     }else if(filter === 'complete') {    
-      filteredTodos = tasks.filter( (task) => task.checked);
+      filterData = [...tasks.filter( (task) => task.checked)];
     }else {
-      filteredTodos = [...tasks];
+      filterData = [...tasks];
     }
 
-    setFilteredTodos(filteredTodos);
-  }, [filter]);
+    setFilteredTodos(filterData);
+  }, [filter, tasks]);
 
   return (
     <>
