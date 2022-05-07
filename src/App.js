@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './App.css';
 
-import { useAlert } from 'react-alert'
+// import { useAlert } from 'react-alert'
 
 import Header from './components/Header';
 import Todos from './components/Todos';
@@ -11,8 +11,6 @@ const App = () => {
 
   const [theme, setTheme] = useState('light');
   const [todos, setTodos] = useState([...todoList]);
-
-  const alert = useAlert()
 
   useEffect(() => {
     if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
