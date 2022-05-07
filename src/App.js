@@ -38,7 +38,7 @@ const App = () => {
   const addTodo = (val) => {          
     const newTodo = { id: todos.length + 1, text: val, checked: false };
     setTodos([...todos, newTodo]);
-    alert.success('Added Todo');
+    // alert.success('Added Todo');
   }
 
   const clearCompleted = () => {
@@ -64,7 +64,7 @@ const App = () => {
     });
 
     setTodos(filteredTodos);
-    alert.success('Updated Todo');
+    // alert.success('Updated Todo');
   }
 
   const removeTodo = (id) => {
