@@ -9,10 +9,7 @@ const Todos = ({tasks, remove, toggle, clear}) => {
   const updateFilter = (filter) => {    
      setFilter(filter);
   }
-
-  let r = filter === 'all' ? 't': 'f';
-  console.log(r);
-
+  
   return (
     <>
         <section className='todos md:w-6/12 sm:w-11/12 lg:w-5/12 mx-auto sm:mt-5 bg-white dark:bg-dark-blue-2 rounded-md shadow-lg'>        

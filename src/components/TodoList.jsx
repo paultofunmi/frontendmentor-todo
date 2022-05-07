@@ -4,7 +4,7 @@ import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
 import TodoItem from './TodoItem'
 
-const TodoList = ({ tasks, remove, toggle, filter }) => {
+const TodoList = ({ tasks, remove, toggle, filter}) => {
 
   let [filteredTodos, setFilteredTodos] = useState(tasks);
 
@@ -22,9 +22,22 @@ const TodoList = ({ tasks, remove, toggle, filter }) => {
     setFilteredTodos(filterData);
   }, [filter, tasks]);
 
+  const onDragEnd = (dndResult) => {
+    
+    if (!dndResult.destination) {
+      return;
+    }
+    
+    const result = Array.from(filteredTodos);
+    const [removed] = result.splice(dndResult.source.index, 1);
+    result.splice(dndResult.destination.index, 0, removed);
+
+    setFilteredTodos(result);
+  }
+
   return (
     <>
-        <DragDropContext>        
+        <DragDropContext onDragEnd={onDragEnd}>        
           <Droppable droppableId='todos'>
             {(provided, snapshot) => (
               <ul 
